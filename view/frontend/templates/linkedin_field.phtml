@@ -1,0 +1,23 @@
+<?php
+/** @var \Tomadevall\Developers\Block\LinkedinProfile $block */
+?>
+<?php if (!$block->fieldIsInvisible()) : ?>
+    <div class="field linkedin_profile <?= $block->fieldIsRequired() ? 'required' : null ?>" data-hasrequired="<?= __('* Required Fields') ?>">
+        <label for="profile_pic" class="label">
+                <span>
+                    <?php /* @escapeNotVerified */ echo __('Linkedin Profile') ?>
+                </span>
+        </label>
+        <div class="control">
+            <input type="text"
+                   name="<?= $block->getAttributeCode() ?>"
+                   id="<?= $block->getAttributeCode() ?>"
+                   value="<?= $block->getFieldValue() ?>"
+                   title="<?php /* @escapeNotVerified */ echo __('Linkedin Profile') ?>"
+                   class="input-text minimum-length=<?= $block->getFieldMinLength() ?> maximum-length-<?= $block->getFieldMaxLength() ?>"
+                   autocomplete="off"
+                   data-validate="{'required':<?= $block->fieldIsRequired() ? 'true' : 'false' ?>, 'validate-length':true, 'validate-linkedin-profile-url': true}"
+            >
+        </div>
+    </div>
+<?php endif; ?>
